@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en" data-ng-app="myApp">
+
+<head>
+    <base href="/">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Creating a blog system with Mean Stack">
+    <meta name="author" content="Green Pioneer">
+    <link rel="apple-touch-icon" sizes="180x180" href="img/greenpioneer.png">
+    <link rel="icon" type="image/png" sizes="192x192" href="img/greenpioneer.png">
+    <link rel="icon" href="img/favicon.ico">
+    <title>Mean Blog - by Green Pioneer</title>
+    <!-- Bootstrap core CSS -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.5/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.4.0/css/font-awesome.min.css">
+    <!-- Custom styles for this template -->
+    <link href="css/blog.css" rel="stylesheet">
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+</head>
+<body ng-controller="blogCtrl">
+    <div class="blog-masthead">
+        <div class="container">
+            <nav class="blog-nav">
+                <a class="blog-nav-item" ng-class="{'active':state.current.name== 'home'}" ui-sref="home">Home</a>
+                <a class="blog-nav-item" ng-class="{'active':state.current.name== 'blogs'}" ui-sref="blogs">Blogs</a>
+                <a class="blog-nav-item" ng-class="{'active':state.current.name== 'create'}" ui-sref="create">Create a Post</a>
+            </nav>
+        </div>
+    </div>
+    <div class="container">
+        <div ui-view></div> <!-- UI-ROUTER https://github.com/angular-ui/ui-router -->
+    </div><!-- /.container -->
+    <footer class="blog-footer">
+        <p>built by <a href="http://greenpioneersolutions.com">Green Pioneer</a></p>
+        <div ng-include="'partials/sociallinks.html'"></div> <!-- NG INCLUDE https://docs.angularjs.org/api/ng/directive/ngInclude -->
+    </footer>
+    
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.5/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.4.5/angular.min.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.4.5/angular-resource.min.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-router/0.2.15/angular-ui-router.min.js"></script>
+    <script type="text/javascript" src="js/controller.js"></script>
+</body>
+</html>

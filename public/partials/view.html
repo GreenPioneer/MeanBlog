@@ -1,0 +1,16 @@
+<div class="row" ng-init="findOne()">
+    <div class="col-sm-8 blog-main">
+        <a class="btn" ui-sref="edit({blogId:viewBlog._id})">
+          Edit<i class="fa fa-pencil"></i>
+        </a>
+        <a class="btn" data-ng-click="remove(viewBlog);">
+          Delete<i class="fa fa-trash"></i>
+        </a>
+        <div class="blog-post">
+            <h2 class="blog-post-title">{{viewBlog.title}}</h2>
+            <p class="blog-post-meta">Created on: {{viewBlog.created | date:'MM/dd/yyyy'}} by {{viewBlog.author}}</p>
+            <p>{{viewBlog.content}}</p>
+        </div><!-- /.blog-post -->
+    </div><!-- /.blog-main -->
+    <div ng-include="'partials/sidebar.html'"></div><!-- /.blog-sidebar -->
+</div><!-- /.row -->
