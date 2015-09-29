@@ -114,6 +114,7 @@ Todo List
  * Add Passport
  * Add Testing
  * Add User Schema
+ * Add Rich Text Editor
 
 
 
