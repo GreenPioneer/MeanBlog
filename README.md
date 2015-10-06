@@ -2,13 +2,8 @@
 
 Created by ![Green Pioneer](http://greenpioneersolutions.com/img/icons/apple-icon-180x180.png)
 
-Features
- * Create 
- * Read 
- * Update
- * Delete
-
-Currently this is just meant as a example. This example is really great for people wanting to learn how to write there own mean stack. There are great mean stack solutions out there but now when starting out. Please take a look around and enjoy the code courtesy of [Green Pioneer](http://www.greenpioneersolutions.com)
+## Info
+Currently this is just meant as a example. This example is really great for people wanting to learn how to write there own mean stack. There are great mean stack solutions out there but not when starting out. Please take a look around and enjoy the code courtesy of [Green Pioneer](http://www.greenpioneersolutions.com)
 
 
 ##Commands
@@ -119,6 +114,7 @@ Todo List
  * Add Passport
  * Add Testing
  * Add User Schema
+ * Add Rich Text Editor
 
 
 
