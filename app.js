@@ -3,8 +3,7 @@ var path = require('path'),
     express = require('express'),
     bodyParser = require('body-parser');
 
-mongoose.Promise = Promise;
-mongoose.connect('mongodb://localhost/blog');
+mongoose.connect('mongodb://user:pass@uri/database');
 
 var blogSchema = mongoose.Schema({
     created: {
@@ -56,26 +55,28 @@ app.post('/blogs', function(req, res) {
     });
 
     blog.save()
-        .then(function() {
+        .then(function(blog,err) {
+            if (err) {
+                return res.status(500).json({
+                    error: 'Error Has Occured'
+                });
+            }
             res.status(201)
                 .send(blog);
         })
-        .catch(function(err) {
-            console.error(err);
-            res.sendStatus(500);
-        });
 });
 
 // Retrieve
 app.get('/blogs', function(req, res) {
     Blog.find()
         .exec()
-        .then(function(blogs) {
+        .then(function(blogs,err) {
+            if (err) {
+                return res.status(500).json({
+                    error: 'Error Has Occured'
+                });
+            }
             res.json(blogs);
-        })
-        .catch(function(err) {
-            console.error(err);
-            res.sendStatus(500);
         });
 });
 
@@ -88,15 +89,16 @@ app.get('/blogs/:id', function(req, res) {
             _id: req.params.id
         })
         .exec()
-        .then(function(blog) {
+        .then(function(blog,err) {
+            if (err) {
+                return res.status(500).json({
+                    error: 'Error Has Occured'
+                });
+            }
             if (!blog) {
                 return res.sendStatus(404);
             }
             res.json(blog);
-        })
-        .catch(function(err) {
-            console.error(err);
-            res.sendStatus(500);
         });
 });
 
@@ -113,15 +115,16 @@ app.put('/blogs/:id', function(req, res) {
             author: req.body.author
         })
         .exec()
-        .then(function(blog) {
+        .then(function(blog,err) {
+            if (err) {
+                return res.status(500).json({
+                    error: 'Error Has Occured'
+                });
+            }
             if (!blog) {
                 return res.sendStatus(404);
             }
             res.json(blog);
-        })
-        .catch(function(err) {
-            console.error(err);
-            res.sendStatus(500);
         });
 });
 
@@ -139,10 +142,6 @@ app.delete('/blogs/:id', function(req, res) {
                 return res.sendStatus(404);
             }
             res.sendStatus(200);
-        })
-        .catch(function(err) {
-            console.error(err);
-            res.sendStatus(500);
         });
 });
 
